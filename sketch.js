@@ -13,7 +13,7 @@ var upperMiddle1, upperMiddle2, upperMiddle3, upperMiddle4, upperMiddle5, upperM
 var squareLeft1, squareLeft2;
 var squareRight1, squareRight2;
 
-var wallsGroup, badGroup, treasureGroup;
+var wallsGroup, treasureGroup;
 
 //variables de cosas malas
 var badThing1, badThing2, badThing3, badThing4, badThing5, badThing6;
@@ -72,9 +72,9 @@ function setup() {
   rightWalldown.shapeColor="#44C96C";
   
 // Paredes horizontales izquierdas
-  horizontalLeft1 = createSprite(75,160,150,50);
+  horizontalLeft1 = createSprite(75,157,150,45);
   horizontalLeft1.shapeColor="#CAFDFF";
-  horizontalLeft2 = createSprite(75,230,150,50);
+  horizontalLeft2 = createSprite(75,233,150,45);
   horizontalLeft2.shapeColor="#E963C2";
   horizontalLeft3 = createSprite(200,40,120,20);
   horizontalLeft3.shapeColor="#F13652";
@@ -92,9 +92,9 @@ function setup() {
   horizontalLeft9.shapeColor="#21C3D8";
 
 //Paredes horizontales Derechas
-  horizontalRight1 = createSprite(525,160,150,50);
+  horizontalRight1 = createSprite(525,157,150,45);
   horizontalRight1.shapeColor="#CAFDFF";
-  horizontalRight2 = createSprite(525,230,150,50);
+  horizontalRight2 = createSprite(525,233,150,45);
   horizontalRight2.shapeColor="#E963C2";
   horizontalRight3 = createSprite(400,40,120,20);
   horizontalRight3.shapeColor="#F13652";
@@ -163,7 +163,7 @@ function setup() {
 //Creación de grupo wall
   wallsGroup = createGroup();
 //Creación de grupo bad
-badGroup = createGroup();
+
 //Creación de grupo treasure
 treasureGroup = createGroup();
 
@@ -223,7 +223,10 @@ function draw() {
   drawSprites();
 
   //Mostar puntuación y vídas
-
+  textSize(15);
+  fill("yellow");
+  text("Puntos: "+ points, 210, 25);
+  
   //Estado del juego "PLAY"
   if(gameState === "PLAY"){
     //Condición para mover al jugador con flechas
@@ -260,11 +263,11 @@ function draw() {
   badThing6.bounceOff(horizontalRight9);
 
   //Teletransportar al jugador
-if(player.x === 0 && (player.y >=191 || player.y <= 200)){
+if(player.x === 0 && (player.y >=180 || player.y <= 220)){
   player.x = 600;
   player.y = 200;
 }
-else if(player.x === 600 && (player.y >=191 || player.y <= 200)){
+else if(player.x === 600 && (player.y >=180 || player.y <= 220)){
   player.x = 0;
   player.y = 200;
 }
@@ -321,12 +324,7 @@ function badThings(){
   badThing6.velocityY=-2;
 
   //Agregar al grupo las cosas malas
-  badGroup.add(badThing1);
-  badGroup.add(badThing2);
-  badGroup.add(badThing3);
-  badGroup.add(badThing4);
-  badGroup.add(badThing5);
-  badGroup.add(badThing6);
+  
 
 }
 
