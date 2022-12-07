@@ -226,7 +226,7 @@ function draw() {
   textSize(15);
   fill("yellow");
   text("Puntos: "+ points, 210, 25);
-  
+
   //Estado del juego "PLAY"
   if(gameState === "PLAY"){
     //Condición para mover al jugador con flechas
@@ -285,6 +285,17 @@ else if(player.x === 600 && (player.y >=180 || player.y <= 220)){
   } else if(player.isTouching(treasure4)){
     points = points+2;
     treasure4.destroy();
+  }
+
+  if(!treasureGroup[0]){
+    textSize(25);
+  fill("pink");
+  text("Fin del juego", 250, 200);
+    text("¡Bien hecho Ganaste!", 200, 250);
+    badGroup.destroyEach();
+    player.x = 300;
+    player.y = 200;
+
   }
 
   } 
