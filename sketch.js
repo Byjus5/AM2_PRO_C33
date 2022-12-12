@@ -291,7 +291,7 @@ else if(player.x === 600 && (player.y >=180 || player.y <= 220)){
     textSize(25);
   fill("pink");
   text("Fin del juego", 250, 200);
-    text("¡Bien hecho Ganaste!", 200, 250);
+    text("¡Bien hecho, ganaste!", 200, 250);
     badGroup.destroyEach();
     player.x = 300;
     player.y = 200;
